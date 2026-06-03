@@ -472,15 +472,18 @@ class Checker:
             points_str, points_num = api.get_points(cookie)
             result.points_total = points_str
 
+            # 4. 不执行兑换
+            result.exchange = "不执行兑换"
+
             # 4. 执行兑换
-            required_points = self.config.EXCHANGE_PLANS.get(self.config.exchange_plan, 500)
-            self._log(
-                cookie_idx,
-                domain,
-                LogEmoji.EXCHANGE,
-                f"开始兑换 {self.config.exchange_plan} (需要 {required_points} 积分)",
-            )
-            result.exchange = api.exchange(cookie, self.config.exchange_plan, required_points)
+            # required_points = self.config.EXCHANGE_PLANS.get(self.config.exchange_plan, 500)
+            # self._log(
+            #     cookie_idx,
+            #     domain,
+            #     LogEmoji.EXCHANGE,
+            #     f"开始兑换 {self.config.exchange_plan} (需要 {required_points} 积分)",
+            # )
+            # result.exchange = api.exchange(cookie, self.config.exchange_plan, required_points)
 
         return result
 
