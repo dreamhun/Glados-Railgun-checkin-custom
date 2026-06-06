@@ -66,6 +66,9 @@ def _get_full_url(self, path: str) -> str:
 | 代码推送 | `push: branches: [main]` | 推送到 main 分支时触发（忽略 README 和 imgs 变更）      |
 | 手动触发 | `workflow_dispatch`      | 在 GitHub 仓库 Actions 页面手动点击运行             |
 
+定时触发具体时间见代码定义，取决于 actions 执行时的服务器所在区。
+
+
 ### 执行步骤
 
 ```

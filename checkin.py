@@ -526,6 +526,12 @@ logger = init_logger()
 def main():
     """主函数"""
     try:
+        # 0. 输出服务器时区
+        import time
+        utc_offset = -time.timezone // 3600
+        tz_name = time.tzname[0]
+        logger.info(f"{LogEmoji.INFO} 服务器时区: {tz_name} (UTC{'+' if utc_offset >= 0 else ''}{utc_offset}:00)")
+
         # 1. 加载配置
         logger.info(f"{LogEmoji.START} 步骤 1: 加载配置")
         config = Config()
