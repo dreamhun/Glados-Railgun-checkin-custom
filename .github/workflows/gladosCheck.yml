@@ -34,9 +34,6 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v6
 
-    - name: Show current time
-      run: echo "当前 UTC 时间: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
-
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v6
       with:
