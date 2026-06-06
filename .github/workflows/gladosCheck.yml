@@ -31,6 +31,12 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
+    - name: 获取当前时间
+      run: echo "当前时间: $(date)"
+      
+    - name: 获取格式化后的当前时间      
+      run: echo "格式化后的当前时间: $(date +'%Y-%m-%d %H:%M:%S')"
+
     - name: Checkout Code
       uses: actions/checkout@v6
 

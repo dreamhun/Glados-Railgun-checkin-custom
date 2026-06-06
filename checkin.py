@@ -536,13 +536,6 @@ def main():
         now = datetime.datetime.now()
         logger.info(f"{LogEmoji.INFO} 当前本地时间: {now}")
 
-        # 通过环境变量获取时区信息
-        timezone_env = os.environ.get('TZ')
-        if timezone_env:
-            logger.info(f"通过环境变量获取的时区: {timezone_env}")
-        else:
-            logger.info("未找到环境变量中的时区信息")
-
         # 1. 加载配置
         logger.info(f"{LogEmoji.START} 步骤 1: 加载配置")
         config = Config()
