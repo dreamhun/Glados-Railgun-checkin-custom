@@ -2,6 +2,7 @@ import requests
 import json
 import os
 import logging
+import datetime
 from enum import Enum
 from typing import Dict, List, Optional, Tuple, Union
 from dataclasses import dataclass, asdict
@@ -531,6 +532,16 @@ def main():
         utc_offset = -time.timezone // 3600
         tz_name = time.tzname[0]
         logger.info(f"{LogEmoji.INFO} 服务器时区: {tz_name} (UTC{'+' if utc_offset >= 0 else ''}{utc_offset}:00)")
+        
+        now = datetime.datetime.now()
+        logger.info(f"{LogEmoji.INFO} 当前本地时间: {now}")
+
+        # 通过环境变量获取时区信息
+        timezone_env = os.environ.get('TZ')
+        if timezone_env:
+            logger.info(f"通过环境变量获取的时区: {timezone_env}")
+        else:
+            logger.info("未找到环境变量中的时区信息")
 
         # 1. 加载配置
         logger.info(f"{LogEmoji.START} 步骤 1: 加载配置")
